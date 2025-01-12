@@ -1,27 +1,36 @@
 {
-  "name": "wowza",
+  "name": "grit",
   "version": "0.1.0",
-  "private": true,
+  "main": "src/electron.js",
+  "author": "Noah Braue",
+  "description": "Generated RTAC Import Tool",
   "dependencies": {
+    "axios": "^1.7.9",
     "cra-template": "1.2.0",
+    "electron-squirrel-startup": "^1.0.1",
     "electron": "^33.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "cross-env BROWSER=none react-scripts start",
+    "start": "concurrently --kill-others \"npm run start-react\" \"npm run start-flask\" \"npm run start-electron\"",
+    "start-react": "cross-env BROWSER=none react-scripts start",
+    "start-flask": "python src/api.py",
+    "start-electron": "electron src/electron.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron": "electron public/electron.js",
-    "dev": "concurrently \"npm start\" \"npm run electron\""
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@electron-forge/cli": "^7.6.0",
+    "@electron-forge/maker-squirrel": "^7.6.0",
+    "@electron-forge/maker-zip": "^7.6.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
+    "@electron-forge/plugin-fuses": "^7.6.0",
+    "@electron/fuses": "^1.8.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3"
   },
   "browserslist": {
     "production": [
@@ -34,9 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "concurrently": "^9.1.2",
-    "cross-env": "^7.0.3"
   }
 }
