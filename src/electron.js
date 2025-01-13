@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const { spawn } = require('child_process');
 const path = require('path');
+if (require('electron-squirrel-startup')) return;
 
 // Run React from local web server (development) or static build (!development)
 let development = false;

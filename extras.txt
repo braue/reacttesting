@@ -1,3 +1,8 @@
+npm run build
+
 pip install flask
 pip install pyinstaller
 pyinstaller --onefile --windowed api.py
+
+npx electron-packager . GRIT --platform=win32 --arch=x64 --icon=./icon.ico --ignore="extras.txt" --ignore "createInstaller.js" --ignore=".gitignore"
+node ./createInstaller.js

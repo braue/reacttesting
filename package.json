@@ -19,17 +19,12 @@
     "start-flask": "python src/api.py",
     "start-electron": "electron src/electron.js",
     "build": "react-scripts build",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "package": "npx electron-packager . GRIT --platform=win32 --arch=x64 --icon=./icon.ico"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.6.0",
-    "@electron-forge/maker-squirrel": "^7.6.0",
-    "@electron-forge/maker-zip": "^7.6.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
-    "@electron-forge/plugin-fuses": "^7.6.0",
-    "@electron/fuses": "^1.8.0",
     "electron": "^33.3.1",
+    "electron-packager": "^17.1.2",
+    "electron-winstaller": "^5.4.0",
     "concurrently": "^9.1.2",
     "cross-env": "^7.0.3"
   },
