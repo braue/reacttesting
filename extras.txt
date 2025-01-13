@@ -1,0 +1,3 @@
+pip install flask
+pip install pyinstaller
+pyinstaller --onefile --windowed api.py

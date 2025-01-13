@@ -9,7 +9,6 @@ function App() {
   
   useEffect(() => {
 
-    // Make a GET request to the Flask backend
     axios.get('http://localhost:5000/api/data')
       .then(response => {
         setMessage(response.data.message);
